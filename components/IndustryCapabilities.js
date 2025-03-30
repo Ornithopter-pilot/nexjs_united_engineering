@@ -566,7 +566,7 @@ const IndustryCapabilities = () => {
           initial="hidden"
           animate={categoriesControls}
           variants={containerVariants}
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4"
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 items-stretch"
         >
           {industries.map((industry, index) => (
             <motion.button
@@ -574,17 +574,18 @@ const IndustryCapabilities = () => {
               onClick={() => setActiveIndustry(industry.id)}
               variants={itemVariants}
               custom={index}
-              whileHover={{ 
+              whileHover={{
                 y: -8,
                 transition: { duration: 0.3 }
               }}
-              className={`relative overflow-hidden rounded-xl p-6 transition-all duration-300 ${
+              layout
+              className={`relative overflow-hidden rounded-xl p-6 transition-all duration-300 h-full flex flex-col justify-center min-h-[160px] ${
                 activeIndustry === industry.id 
                   ? 'bg-gradient-to-br ' + industry.color + ' border-2 border-accent/50 shadow-lg shadow-accent/20'
                   : 'bg-dark-gray/50 border border-gray-800 hover:border-gray-700'
               }`}
             >
-              <div className="flex flex-col items-center text-center">
+              <div className="flex flex-col items-center justify-center text-center w-full h-full">
                 <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-4 transition-all duration-300 ${
                   activeIndustry === industry.id
                     ? 'bg-white/10'
@@ -656,7 +657,7 @@ const IndustryCapabilities = () => {
             initial={{ width: 0 }}
             animate={{ width: '100%' }}
             transition={{ duration: 0.8 }}
-            className="h-px bg-gradient-to-r from-accent via-accent/50 to-transparent mb-6"
+            className="h-px bg-gradient-to-r from-accent via-accent/50 to-transparent mb-6 w-full"
           />
         </div>
         
@@ -940,50 +941,7 @@ const IndustryCapabilities = () => {
           ))}
         </div>
         
-        {/* Technical Excellence Highlight */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="bg-gradient-to-r from-dark-gray/80 to-black/80 backdrop-blur-sm rounded-xl p-8 border border-gray-800 mb-16"
-        >
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="col-span-1 md:col-span-2 flex flex-col justify-center">
-              <h4 className="text-2xl font-bold mb-4">Technical Excellence</h4>
-              <p className="text-gray-300 mb-6">
-                Our engineering team combines decades of experience with cutting-edge technology to push the boundaries of what's possible in precision manufacturing.
-              </p>
-              <div className="h-1 w-20 bg-accent rounded-full"></div>
-            </div>
-            
-            <div className="md:col-span-2 grid grid-cols-2 gap-4">
-              {[
-                { label: "Precision Tolerance", value: "±0.001mm", icon: "🎯" },
-                { label: "Surface Finish", value: "<0.1Ra", icon: "✨" },
-                { label: "Quality Standard", value: "ISO 9001/13485", icon: "✓" },
-                { label: "Production Capacity", value: "500K+ Annually", icon: "⚙️" },
-              ].map((spec, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ delay: index * 0.1 + 0.3, duration: 0.5 }}
-                  viewport={{ once: true }}
-                  className="bg-dark/30 rounded-lg p-4 border border-gray-800/50 group hover:border-accent/30 transition-colors duration-300"
-                >
-                  <div className="flex items-center mb-2">
-                    <div className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center mr-2 text-lg group-hover:bg-accent/20 transition-colors duration-300">
-                      {spec.icon}
-                    </div>
-                    <h5 className="font-medium text-gray-300 group-hover:text-white transition-colors duration-300">{spec.label}</h5>
-                  </div>
-                  <div className="font-mono text-xl text-accent">{spec.value}</div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </motion.div>
+        {/* Technical Excellence section removed to avoid duplication */}
         
         {/* CTA Section */}
         <motion.div

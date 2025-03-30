@@ -154,18 +154,10 @@ const About = () => {
           transition={{ duration: 1 }}
           className="text-center max-w-4xl mx-auto"
         >
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="inline-flex items-center bg-black/30 backdrop-blur-sm px-4 py-2 rounded-md border-l-2 border-accent mb-6"
-          >
-            <span className="w-2 h-2 bg-accent rounded-full mr-2 animate-[pulse_2s_ease-in-out_infinite]"></span>
-            <span className="text-accent font-medium tracking-wider">OUR EVOLUTION</span>
-          </motion.div>
+          {/* Section card removed */}
           
           <motion.h2
-            className="text-5xl md:text-6xl font-bold mb-8"
+            className="text-5xl md:text-6xl font-bold mt-6 mb-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
@@ -310,12 +302,9 @@ const About = () => {
             animate={missionControls}
             className="text-center max-w-3xl mx-auto mb-16"
           >
-            <motion.div variants={itemVariant} className="inline-flex items-center bg-black/30 backdrop-blur-sm px-4 py-2 rounded-md border-l-2 border-accent mb-6">
-              <span className="w-2 h-2 bg-accent rounded-full mr-2 animate-[pulse_2s_ease-in-out_infinite]"></span>
-              <span className="text-accent font-medium tracking-wider">OUR PURPOSE</span>
-            </motion.div>
+            {/* Purpose section card removed */}
             
-            <motion.h3 variants={itemVariant} className="text-4xl font-bold mb-6">
+            <motion.h3 variants={itemVariant} className="text-4xl font-bold mt-6 mb-6">
               Guided by <span className="text-accent">Vision</span> & <span className="text-accent">Purpose</span>
             </motion.h3>
             
@@ -422,12 +411,9 @@ const About = () => {
             animate={industriesControls}
             className="text-center max-w-3xl mx-auto mb-16"
           >
-            <motion.div variants={itemVariant} className="inline-flex items-center bg-black/30 backdrop-blur-sm px-4 py-2 rounded-md border-l-2 border-accent mb-6">
-              <span className="w-2 h-2 bg-accent rounded-full mr-2 animate-[pulse_2s_ease-in-out_infinite]"></span>
-              <span className="text-accent font-medium tracking-wider">INDUSTRIES</span>
-            </motion.div>
+            {/* Industries section card removed */}
             
-            <motion.h3 variants={itemVariant} className="text-4xl font-bold mb-6">
+            <motion.h3 variants={itemVariant} className="text-4xl font-bold mt-6 mb-6">
               Industries We <span className="text-accent">Serve</span>
             </motion.h3>
             
@@ -501,12 +487,9 @@ const About = () => {
             animate={timelineControls}
             className="text-center max-w-3xl mx-auto mb-16"
           >
-            <motion.div variants={itemVariant} className="inline-flex items-center bg-black/30 backdrop-blur-sm px-4 py-2 rounded-md border-l-2 border-accent mb-6">
-              <span className="w-2 h-2 bg-accent rounded-full mr-2 animate-[pulse_2s_ease-in-out_infinite]"></span>
-              <span className="text-accent font-medium tracking-wider">JOURNEY</span>
-            </motion.div>
+            {/* Journey section card removed */}
             
-            <motion.h3 variants={itemVariant} className="text-4xl font-bold mb-6">
+            <motion.h3 variants={itemVariant} className="text-4xl font-bold mt-6 mb-6">
               Our <span className="text-accent">Evolution</span>
             </motion.h3>
             
@@ -570,12 +553,9 @@ const About = () => {
             animate={standardsControls}
             className="text-center max-w-3xl mx-auto mb-16"
           >
-            <motion.div variants={itemVariant} className="inline-flex items-center bg-black/30 backdrop-blur-sm px-4 py-2 rounded-md border-l-2 border-accent mb-6">
-              <span className="w-2 h-2 bg-accent rounded-full mr-2 animate-[pulse_2s_ease-in-out_infinite]"></span>
-              <span className="text-accent font-medium tracking-wider">STANDARDS</span>
-            </motion.div>
+            {/* Standards section card removed */}
             
-            <motion.h3 variants={itemVariant} className="text-4xl font-bold mb-6">
+            <motion.h3 variants={itemVariant} className="text-4xl font-bold mt-6 mb-6">
               Quality <span className="text-accent">&</span> Industry Standards
             </motion.h3>
             

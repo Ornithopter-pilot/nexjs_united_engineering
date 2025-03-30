@@ -7,7 +7,7 @@ import About from '../components/About';
 import Contact from '../components/Contact';
 import PageWrapper from '../components/PageWrapper';
 import CoreTechnologies from '../components/CoreTechnologies';
-import InnovationTimeline from '../components/InnovationTimeline';
+import EnhancedTimeline from '../components/EnhancedTimeline';
 import SectionDivider from '../components/SectionDivider';
 
 export default function Home() {
@@ -54,14 +54,8 @@ export default function Home() {
           {/* Section divider */}
           <SectionDivider pattern={3} />
           
-          {/* Innovation Timeline Section */}
-          <InnovationTimeline />
-          
-          {/* Section divider */}
-          <SectionDivider direction="up" pattern={1} bgColor="bg-dark" textColor="text-dark-gray" />
-          
-          {/* Company Evolution Section */}
-          <About />
+          {/* Enhanced Timeline Section */}
+          <EnhancedTimeline />
           
           {/* Section divider */}
           <SectionDivider pattern={2} />

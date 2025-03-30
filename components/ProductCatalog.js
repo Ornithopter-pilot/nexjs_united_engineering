@@ -310,12 +310,14 @@ const ProductCatalog = () => {
   // Initialize with first product selected
   useEffect(() => {
     if (filteredProducts.length > 0 && !selectedProduct) {
-      // Set a short timeout to trigger the loading animation
+      // Immediately set selected product for UI highlight
+      setSelectedProduct(filteredProducts[0]);
+      
+      // Shorter loading time for better performance
       setIsLoading(true);
       const timer = setTimeout(() => {
-        setSelectedProduct(filteredProducts[0]);
         setIsLoading(false);
-      }, 1500);
+      }, 400);
       
       return () => clearTimeout(timer);
     }
@@ -323,30 +325,35 @@ const ProductCatalog = () => {
 
   // Handle category change
   useEffect(() => {
-    setIsLoading(true);
     setShowDetails(false);
     
+    // Immediately update selected product for UI highlight
+    if (filteredProducts.length > 0) {
+      setSelectedProduct(filteredProducts[0]);
+    }
+    
+    // Shorter loading time for better responsiveness
+    setIsLoading(true);
     const timer = setTimeout(() => {
-      if (filteredProducts.length > 0) {
-        setSelectedProduct(filteredProducts[0]);
-        setIsLoading(false);
-      }
-    }, 1500);
+      setIsLoading(false);
+    }, 400);
     
     return () => clearTimeout(timer);
-  }, [activeCategory]);
+  }, [activeCategory, filteredProducts]);
 
   // Handle product selection
   const handleProductSelect = (product) => {
     if (product.id === selectedProduct?.id) return;
     
-    setIsLoading(true);
+    // First update UI immediately for responsive feel
+    setSelectedProduct(product);
     setShowDetails(false);
     
+    // Use a much shorter loading time for better responsiveness
+    setIsLoading(true);
     setTimeout(() => {
-      setSelectedProduct(product);
       setIsLoading(false);
-    }, 1000);
+    }, 300);
   };
 
   // Toggle details panel
@@ -354,9 +361,12 @@ const ProductCatalog = () => {
     setShowDetails(!showDetails);
   };
 
-  // Setup orbiting animation
+  // Setup orbiting animation - optimized for performance
   useEffect(() => {
-    if (!orbitsRef.current || isLoading) return;
+    if (!orbitsRef.current) return;
+    
+    // We'll update the orbit immediately without waiting for loading state
+    // This makes the UI feel more responsive
     
     // Create orbit animations for background products
     const orbits = orbitsRef.current;
@@ -381,12 +391,12 @@ const ProductCatalog = () => {
       orbitEl.style.left = '50%';
       orbitEl.style.transform = 'translate(-50%, -50%)';
       
-      // Add animation
-      orbitEl.style.animation = `spin-${index % 2 === 0 ? 'clockwise' : 'counter'} ${20 + index * 5}s linear infinite`;
+      // Add animation with reduced duration for better performance
+      orbitEl.style.animation = `spin-${index % 2 === 0 ? 'clockwise' : 'counter'} ${15 + index * 3}s linear infinite`;
       
       // Add a product marker on the orbit
       const marker = document.createElement('div');
-      marker.className = 'absolute w-16 h-16 p-1 rounded-full bg-dark-gray/80 backdrop-blur-sm border border-gray-700 overflow-hidden cursor-pointer transition-all duration-300 hover:scale-110 hover:border-accent/50 product-orbit-marker';
+      marker.className = 'absolute w-16 h-16 p-1 rounded-full bg-dark-gray/80 backdrop-blur-sm border border-gray-700 overflow-hidden cursor-pointer transition-all duration-200 hover:scale-110 hover:border-accent/50 product-orbit-marker';
       marker.style.top = '0%';
       marker.style.left = '50%';
       marker.style.transform = 'translate(-50%, -50%)';
@@ -402,12 +412,16 @@ const ProductCatalog = () => {
       orbitEl.appendChild(marker);
       orbits.appendChild(orbitEl);
       
-      // Add click event to marker
+      // Add click event to marker with immediate visual feedback
       marker.addEventListener('click', () => {
         const productId = marker.getAttribute('data-product-id');
         const product = products.find(p => p.id === productId);
         if (product) {
-          handleProductSelect(product);
+          // Add a visual pulse effect before handling selection
+          marker.style.boxShadow = '0 0 15px rgba(0, 229, 255, 0.7)';
+          setTimeout(() => {
+            handleProductSelect(product);
+          }, 100); // Very short delay for visual feedback
         }
       });
     });
@@ -437,7 +451,7 @@ const ProductCatalog = () => {
         document.head.removeChild(style);
       }
     };
-  }, [selectedProduct, filteredProducts, isLoading]);
+  }, [selectedProduct, filteredProducts]);
 
   return (
     <section id="products" className="relative min-h-screen bg-dark text-white overflow-hidden py-24">
@@ -570,32 +584,32 @@ const ProductCatalog = () => {
             <div className="relative z-10 flex flex-col items-center justify-center">
               {isLoading ? (
                 <div className="flex flex-col items-center justify-center h-[400px]">
-                  {/* Modern Loading Indicator */}
-                  <div className="relative w-32 h-32 mb-8">
-                    <div className="absolute inset-0 rounded-full border-2 border-transparent border-t-accent border-b-accent animate-spin"></div>
-                    <div className="absolute inset-[10px] rounded-full border-2 border-transparent border-l-accent border-r-accent animate-spin" style={{ animationDuration: '1.5s', animationDirection: 'reverse' }}></div>
-                    <div className="absolute inset-[20px] rounded-full border-2 border-transparent border-t-accent border-r-accent animate-spin" style={{ animationDuration: '2s' }}></div>
-                    <div className="absolute top-1/2 left-1/2 w-4 h-4 bg-accent rounded-full -ml-2 -mt-2 animate-pulse"></div>
+                  {/* Fast Modern Loading Indicator */}
+                  <div className="relative w-24 h-24 mb-6">
+                    <div className="absolute inset-0 rounded-full border-2 border-transparent border-t-accent border-b-accent animate-spin" style={{ animationDuration: '0.8s' }}></div>
+                    <div className="absolute inset-[8px] rounded-full border-2 border-transparent border-l-accent border-r-accent animate-spin" style={{ animationDuration: '1s', animationDirection: 'reverse' }}></div>
+                    <div className="absolute inset-[16px] rounded-full border-2 border-transparent border-t-accent border-r-accent animate-spin" style={{ animationDuration: '1.2s' }}></div>
+                    <div className="absolute top-1/2 left-1/2 w-4 h-4 bg-accent rounded-full -ml-2 -mt-2 animate-pulse" style={{ animationDuration: '0.8s' }}></div>
                   </div>
-                  <div className="text-xl font-light text-accent animate-pulse mb-2">Loading Product</div>
-                  <div className="text-sm text-gray-400">Preparing high-resolution details</div>
+                  <div className="text-xl font-light text-accent animate-pulse mb-2" style={{ animationDuration: '1s' }}>Loading Product</div>
+                  <div className="text-sm text-gray-400">Please wait...</div>
                 </div>
               ) : (
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={selectedProduct?.id}
-                    initial={{ opacity: 0, scale: 0.9 }}
+                    initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.9 }}
-                    transition={{ duration: 0.5, type: 'spring', stiffness: 150, damping: 20 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.3, type: 'spring', stiffness: 200, damping: 20 }}
                     className="flex flex-col md:flex-row gap-10 items-center bg-dark-gray/20 backdrop-blur-sm rounded-2xl p-8 border border-gray-800 max-w-6xl"
                   >
                     {/* Product Image */}
                     <motion.div 
                       className="w-full md:w-1/2 relative"
-                      initial={{ opacity: 0, y: 20 }}
+                      initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.2, duration: 0.6 }}
+                      transition={{ delay: 0.1, duration: 0.3 }}
                     >
                       <div className="relative aspect-square flex items-center justify-center overflow-hidden group rounded-xl">
                         {/* Image with glow effect */}
@@ -672,9 +686,9 @@ const ProductCatalog = () => {
                     {/* Product Details */}
                     <motion.div 
                       className="w-full md:w-1/2"
-                      initial={{ opacity: 0, y: 20 }}
+                      initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.4, duration: 0.6 }}
+                      transition={{ delay: 0.2, duration: 0.3 }}
                     >
                       <h3 className="text-3xl font-bold mb-4 text-white">{selectedProduct?.name}</h3>
                       
@@ -856,16 +870,28 @@ const ProductCatalog = () => {
                 whileTap={{ scale: 0.98 }}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 + (index * 0.05), duration: 0.5 }}
-                className={`bg-dark-gray/50 backdrop-blur-sm rounded-lg p-4 border cursor-pointer transition-all duration-300 ${
-                  selectedProduct?.id === product.id
-                    ? 'border-accent shadow-lg shadow-accent/10'
-                    : 'border-gray-800 hover:border-gray-700'
-                }`}
+                transition={{ delay: 0.1 + (index * 0.03), duration: 0.3 }}
                 onClick={() => handleProductSelect(product)}
                 onMouseEnter={() => setHoveredProduct(product.id)}
                 onMouseLeave={() => setHoveredProduct(null)}
+                className="relative cursor-pointer"
               >
+                {/* Outer glow effect for selected product */}
+                {selectedProduct?.id === product.id && (
+                  <motion.div 
+                    className="absolute -inset-1 bg-accent/20 rounded-xl blur-md z-0"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: [0.5, 1, 0.5] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  />
+                )}
+                
+                {/* Card content */}
+                <div className={`relative z-10 bg-dark-gray/50 backdrop-blur-sm rounded-lg p-4 border transition-all duration-200 ${
+                  selectedProduct?.id === product.id
+                    ? 'border-accent shadow-xl shadow-accent/30 outline outline-1 outline-accent product-highlight'
+                    : 'border-gray-800 hover:border-gray-700'
+                }`}>
                 <div className="aspect-square rounded-md overflow-hidden bg-black/30 flex items-center justify-center p-2 mb-3">
                   <motion.img
                     src={product.image}
@@ -875,9 +901,10 @@ const ProductCatalog = () => {
                     transition={{ duration: 0.3 }}
                   />
                 </div>
-                <h4 className="text-sm font-medium text-center text-gray-300 line-clamp-2">
+                <h4 className={`text-sm font-medium text-center line-clamp-2 ${selectedProduct?.id === product.id ? 'text-accent' : 'text-gray-300'}`}>
                   {product.name}
                 </h4>
+                </div>
               </motion.div>
             ))}
           </div>

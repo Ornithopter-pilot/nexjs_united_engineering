@@ -193,12 +193,9 @@ const Contact = () => {
         className="container mx-auto px-6 mb-16"
       >
         <motion.div variants={itemVariants} className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center bg-black/30 backdrop-blur-sm px-4 py-2 rounded-md border-l-2 border-accent mb-6">
-            <span className="w-2 h-2 bg-accent rounded-full mr-2 animate-[pulse_2s_ease-in-out_infinite]"></span>
-            <span className="text-accent font-medium tracking-wider">GET IN TOUCH</span>
-          </div>
+          {/* GET IN TOUCH section card removed */}
           
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Let's Discuss Your <span className="text-accent">Project</span></h2>
+          <h2 className="text-4xl md:text-5xl font-bold mt-6 mb-6">Let's Discuss Your <span className="text-accent">Project</span></h2>
           
           <p className="text-xl text-gray-300">
             Contact our team to discuss how our precision engineering capabilities can benefit your business and projects.
