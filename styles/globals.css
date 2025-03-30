@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Orbit animations for product catalog */
+@keyframes spin-clockwise {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes spin-counter {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(-360deg); }
+}
+
+/* Float animation for particles */
+@keyframes float {
+  0%, 100% { transform: translate(0px, 0px); }
+  25% { transform: translate(10px, -15px); }
+  50% { transform: translate(20px, 0px); }
+  75% { transform: translate(10px, 15px); }
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 10, 10, 10;
+  --background-end-rgb: 15, 15, 15;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      rgb(var(--background-start-rgb)),
+      rgb(var(--background-end-rgb))
+    )
+    fixed;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e1e1e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00e5ff;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00b2cc;
+}
+
+/* Custom utility classes */
+.text-gradient {
+  background: linear-gradient(to right, #00e5ff, #5472d3);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.glass-effect {
+  backdrop-filter: blur(10px);
+  background: rgba(30, 30, 30, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+@layer components {
+  .futuristic-border {
+    @apply relative;
+  }
+  
+  .futuristic-border::before {
+    content: '';
+    @apply absolute top-0 left-0 w-full h-full;
+    border: 1px solid transparent;
+    border-image: linear-gradient(to right, #00e5ff, #5472d3);
+    border-image-slice: 1;
+    animation: border-flow 3s linear infinite;
+  }
+  
+  @keyframes border-flow {
+    0% {
+      border-image-source: linear-gradient(0deg, #00e5ff, #5472d3);
+    }
+    100% {
+      border-image-source: linear-gradient(360deg, #00e5ff, #5472d3);
+    }
+  }
+}
