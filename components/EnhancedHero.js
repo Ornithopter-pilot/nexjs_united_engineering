@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 
-const Hero = () => {
+const EnhancedHero = () => {
   const bannerRef = useRef(null);
   const particlesRef = useRef(null);
   const flowLinesRef = useRef(null);
@@ -389,58 +389,58 @@ const Hero = () => {
     
     // System Alpha (top) - MOVED DOWN to avoid cluttering with the GET IN TOUCH button
     const systemAlpha = document.createElement('div');
-    systemAlpha.className = 'absolute top-[18%] right-[5%] bg-black/30 backdrop-blur-sm border border-accent/30 rounded-sm p-3 w-[200px] transition-all duration-300 system-display';
+    systemAlpha.className = 'absolute top-[18%] right-[5%] bg-black/30 backdrop-blur-sm border border-accent/30 rounded-sm p-3 w-[180px] transition-all duration-300 system-display';
     systemAlpha.innerHTML = `
-      <div class="text-accent text-sm font-mono uppercase mb-2 font-bold">SYSTEM ALPHA</div>
+      <div class="text-accent text-sm font-mono uppercase mb-2">SYSTEM ALPHA</div>
       <div class="flex justify-between items-center mb-1">
         <div class="text-white/70 text-xs font-mono">STATUS</div>
-        <div class="text-accent text-xs font-mono font-bold">OPTIMAL</div>
+        <div class="text-accent text-xs font-mono">OPTIMAL</div>
       </div>
       <div class="flex justify-between items-center mb-1">
         <div class="text-white/70 text-xs font-mono">EFF</div>
-        <div class="text-accent text-xs font-mono font-bold">97%</div>
+        <div class="text-accent text-xs font-mono">97%</div>
       </div>
       <div class="flex justify-between items-center">
         <div class="text-white/70 text-xs font-mono">TEMP</div>
-        <div class="text-accent text-xs font-mono font-bold">25°</div>
+        <div class="text-accent text-xs font-mono">25°</div>
       </div>
     `;
     
     // System Beta (middle)
     const systemBeta = document.createElement('div');
-    systemBeta.className = 'absolute top-[45%] right-[10%] bg-black/30 backdrop-blur-sm border border-accent/30 rounded-sm p-3 w-[200px] transition-all duration-300 system-display';
+    systemBeta.className = 'absolute top-[45%] right-[10%] bg-black/30 backdrop-blur-sm border border-accent/30 rounded-sm p-3 w-[180px] transition-all duration-300 system-display';
     systemBeta.innerHTML = `
-      <div class="text-accent text-sm font-mono uppercase mb-2 font-bold">SYSTEM BETA</div>
+      <div class="text-accent text-sm font-mono uppercase mb-2">SYSTEM BETA</div>
       <div class="flex justify-between items-center mb-1">
         <div class="text-white/70 text-xs font-mono">STATUS</div>
-        <div class="text-accent text-xs font-mono font-bold">OPTIMAL</div>
+        <div class="text-accent text-xs font-mono">OPTIMAL</div>
       </div>
       <div class="flex justify-between items-center mb-1">
         <div class="text-white/70 text-xs font-mono">EFF</div>
-        <div class="text-accent text-xs font-mono font-bold">99%</div>
+        <div class="text-accent text-xs font-mono">99%</div>
       </div>
       <div class="flex justify-between items-center">
         <div class="text-white/70 text-xs font-mono">TEMP</div>
-        <div class="text-accent text-xs font-mono font-bold">20°</div>
+        <div class="text-accent text-xs font-mono">20°</div>
       </div>
     `;
     
     // System Delta (bottom)
     const systemDelta = document.createElement('div');
-    systemDelta.className = 'absolute bottom-[22%] right-[5%] bg-black/30 backdrop-blur-sm border border-accent/30 rounded-sm p-3 w-[200px] transition-all duration-300 system-display';
+    systemDelta.className = 'absolute bottom-[22%] right-[5%] bg-black/30 backdrop-blur-sm border border-accent/30 rounded-sm p-3 w-[180px] transition-all duration-300 system-display';
     systemDelta.innerHTML = `
-      <div class="text-accent text-sm font-mono uppercase mb-2 font-bold">SYSTEM DELTA</div>
+      <div class="text-accent text-sm font-mono uppercase mb-2">SYSTEM DELTA</div>
       <div class="flex justify-between items-center mb-1">
         <div class="text-white/70 text-xs font-mono">STATUS</div>
-        <div class="text-accent text-xs font-mono font-bold">OPTIMAL</div>
+        <div class="text-accent text-xs font-mono">OPTIMAL</div>
       </div>
       <div class="flex justify-between items-center mb-1">
         <div class="text-white/70 text-xs font-mono">EFF</div>
-        <div class="text-accent text-xs font-mono font-bold">93%</div>
+        <div class="text-accent text-xs font-mono">93%</div>
       </div>
       <div class="flex justify-between items-center">
         <div class="text-white/70 text-xs font-mono">TEMP</div>
-        <div class="text-accent text-xs font-mono font-bold">22°</div>
+        <div class="text-accent text-xs font-mono">22°</div>
       </div>
     `;
     
@@ -788,7 +788,7 @@ const Hero = () => {
                 }}
                 className="overflow-hidden"
               >
-                <span className="block font-extrabold">MACHINE</span>
+                <span className="block">MACHINE</span>
               </motion.div>
               
               <motion.div
@@ -806,7 +806,7 @@ const Hero = () => {
                 }}
                 className="overflow-hidden"
               >
-                <span className="block text-accent font-extrabold">INTELLIGENCE</span>
+                <span className="block text-accent">INTELLIGENCE</span>
               </motion.div>
               
               <motion.div
@@ -824,7 +824,7 @@ const Hero = () => {
                 }}
                 className="overflow-hidden"
               >
-                <span className="block font-extrabold">REDEFINED</span>
+                <span className="block">REDEFINED</span>
               </motion.div>
             </motion.h1>
           </div>
@@ -891,7 +891,7 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 1 }}
           >
             <motion.a 
-              href="#capabilities" 
+              href="#solutions" 
               className="group bg-accent hover:bg-accent-light text-dark font-bold py-4 px-8 rounded-md inline-flex items-center justify-center transition-all duration-500 shadow-lg shadow-accent/20 hover:shadow-accent/40 relative overflow-hidden"
               whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
               whileTap={{ scale: 0.98 }}
@@ -969,4 +969,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default EnhancedHero;

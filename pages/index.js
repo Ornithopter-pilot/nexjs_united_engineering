@@ -2,10 +2,13 @@ import Head from 'next/head';
 import { useEffect } from 'react';
 import NavBar from '../components/NavBar';
 import Hero from '../components/Hero';
-import About from '../components/About';
 import IndustryCapabilities from '../components/IndustryCapabilities';
+import About from '../components/About';
 import Contact from '../components/Contact';
 import PageWrapper from '../components/PageWrapper';
+import CoreTechnologies from '../components/CoreTechnologies';
+import InnovationTimeline from '../components/InnovationTimeline';
+import SectionDivider from '../components/SectionDivider';
 
 export default function Home() {
   useEffect(() => {
@@ -26,6 +29,9 @@ export default function Home() {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://unitedengineering.org" />
         <meta property="og:image" content="https://unitedengineering.org/og-image.jpg" />
+        
+        {/* Font Awesome for icons */}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
       </Head>
 
       <PageWrapper>
@@ -33,11 +39,32 @@ export default function Home() {
           <NavBar />
           <Hero />
           
+          {/* Section divider */}
+          <SectionDivider pattern={1} />
+          
+          {/* Core Technologies Section */}
+          <CoreTechnologies />
+          
+          {/* Section divider */}
+          <SectionDivider direction="up" pattern={2} bgColor="bg-dark" textColor="text-dark-gray" />
+          
           {/* Solutions Section */}
           <IndustryCapabilities />
           
+          {/* Section divider */}
+          <SectionDivider pattern={3} />
+          
+          {/* Innovation Timeline Section */}
+          <InnovationTimeline />
+          
+          {/* Section divider */}
+          <SectionDivider direction="up" pattern={1} bgColor="bg-dark" textColor="text-dark-gray" />
+          
           {/* Company Evolution Section */}
           <About />
+          
+          {/* Section divider */}
+          <SectionDivider pattern={2} />
           
           <Contact />
         </main>

@@ -534,10 +534,7 @@ const IndustryCapabilities = () => {
           variants={containerVariants}
           className="text-center max-w-4xl mx-auto"
         >
-          <motion.div variants={itemVariants} className="inline-flex items-center bg-black/30 backdrop-blur-sm px-4 py-2 rounded-md border-l-2 border-accent mb-6">
-            <span className="w-2 h-2 bg-accent rounded-full mr-2 animate-[pulse_2s_ease-in-out_infinite]"></span>
-            <span className="text-accent font-medium tracking-wider">INDUSTRY SOLUTIONS</span>
-          </motion.div>
+          {/* Section title removed as requested */}
           
           <motion.h2 variants={itemVariants} className="text-5xl font-bold mb-6">
             Advanced <span className="text-accent">Precision Engineering</span>
@@ -863,16 +860,7 @@ const IndustryCapabilities = () => {
           viewport={{ once: true }}
           className="text-center max-w-4xl mx-auto mb-16"
         >
-          <motion.div 
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center bg-black/30 backdrop-blur-sm px-4 py-2 rounded-md border-l-2 border-accent mb-6"
-          >
-            <span className="w-2 h-2 bg-accent rounded-full mr-2 animate-[pulse_2s_ease-in-out_infinite]"></span>
-            <span className="text-accent font-medium tracking-wider">MANUFACTURING CAPABILITIES</span>
-          </motion.div>
+          {/* Section title removed as requested */}
           
           <motion.h3 
             initial={{ opacity: 0, y: 20 }}
