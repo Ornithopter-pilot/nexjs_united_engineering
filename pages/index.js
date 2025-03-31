@@ -9,6 +9,7 @@ import PageWrapper from '../components/PageWrapper';
 import CoreTechnologies from '../components/CoreTechnologies';
 import EnhancedTimeline from '../components/EnhancedTimeline';
 import SectionDivider from '../components/SectionDivider';
+import Careers from '../components/Careers';
 
 export default function Home() {
   useEffect(() => {
@@ -59,6 +60,12 @@ export default function Home() {
           
           {/* Section divider */}
           <SectionDivider pattern={2} />
+          
+          {/* Careers Section */}
+          <Careers />
+          
+          {/* Section divider */}
+          <SectionDivider pattern={4} />
           
           <Contact />
         </main>

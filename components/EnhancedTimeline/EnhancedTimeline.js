@@ -69,7 +69,7 @@ const EnhancedTimeline = () => {
     {
       year: "2020",
       title: "Digital Twin Implementation",
-      description: "Pioneered the use of digital twin technology for virtual component development and testing, reducing physical prototyping by 60% and launching our international operations.",
+      description: "Strategically implemented digital twin technology for virtual component development and testing, reducing physical prototyping by 60% and expanding our international operations.",
       icon: "fa-cubes",
       featured: true,
       image: "/images/revamp_products/Digital Twin Technology - 2020 Milestone.png",

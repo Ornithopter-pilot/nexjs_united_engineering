@@ -837,7 +837,7 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.8 }}
           >
             <p>
-              Fusing automation, precision engineering & AI-driven workflows to transform 
+              Fusing automation, precision engineering & AI-driven workflows to deliver precision solutions across 
               <motion.span 
                 className="relative inline-block mx-1 group cursor-pointer"
                 whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
@@ -879,7 +879,7 @@ const Hero = () => {
               >
                 <span className="text-accent font-semibold">robotics</span>
                 <span className="absolute bottom-0 left-0 w-full h-[2px] bg-accent/50 group-hover:h-full group-hover:bg-accent/10 transition-all duration-300 ease-in-out"></span>
-              </motion.span> industries worldwide
+              </motion.span> sectors - with capabilities engineered for tomorrow's manufacturing challenges
             </p>
           </motion.div>
 

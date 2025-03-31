@@ -91,6 +91,23 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
+/* Hide scrollbar for clean UI */
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari, Opera */
+}
+
+/* Job card hover animation */
+@keyframes card-glow {
+  0% { box-shadow: 0 0 0 0 rgba(0, 229, 255, 0.5); }
+  70% { box-shadow: 0 0 20px 10px rgba(0, 229, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 229, 255, 0); }
+}
+
 @layer components {
   .futuristic-border {
     @apply relative;

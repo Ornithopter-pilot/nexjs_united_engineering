@@ -106,7 +106,7 @@ const NavBar = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:block">
             <ul className="flex items-center space-x-8">
-              {['Home', 'Solutions', 'Evolution', 'Contact'].map((item) => (
+              {['Home', 'Solutions', 'Evolution', 'Careers', 'Contact'].map((item) => (
                 <li key={item}>
                   <motion.a
                     href={item === 'Home' ? '/' : `#${item.toLowerCase()}`}
@@ -185,7 +185,7 @@ const NavBar = () => {
           variants={mobileMenuVariants}
         >
           <ul className="pt-5 pb-3 space-y-4">
-            {['Home', 'Solutions', 'Evolution', 'Contact'].map((item) => (
+            {['Home', 'Solutions', 'Evolution', 'Careers', 'Contact'].map((item) => (
               <motion.li key={item} variants={mobileItemVariants}>
                 <a
                   href={item === 'Home' ? '/' : `#${item.toLowerCase()}`}
