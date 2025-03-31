@@ -94,13 +94,54 @@ const NavBar = () => {
       <div className="container mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
           <div className="flex items-center">
-            <Link href="/" className="block">
+            <a 
+              href="/" 
+              onClick={(e) => {
+                e.preventDefault();
+                window.location.href = "/";
+              }} 
+              className="flex items-center group px-3 py-1 rounded-md backdrop-blur-sm bg-dark-gray/20 hover:bg-dark-gray/40 transition-all duration-300 cursor-pointer"
+            >
               <img 
                 src="/images/logo-white.png" 
                 alt="United Engineering" 
-                className="w-auto h-12"
+                className="w-auto h-12 mr-3"
               />
-            </Link>
+              {/* Mobile company name */}
+              <div className="flex flex-col sm:hidden">
+                <motion.span 
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5 }}
+                  className="text-lg font-bold tracking-tight text-accent"
+                >
+                  U·ENGINEERING
+                </motion.span>
+              </div>
+              <div className="flex flex-col hidden sm:block">
+                <motion.div 
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  className="flex items-baseline"
+                >
+                  <span className="text-xl font-bold tracking-tight mr-1">UNITED</span>
+                  <motion.span 
+                    className="text-xl font-bold text-accent tracking-tight"
+                    animate={{ 
+                      textShadow: ['0 0 0px rgba(0,229,255,0.2)', '0 0 8px rgba(0,229,255,0.5)', '0 0 0px rgba(0,229,255,0.2)'] 
+                    }}
+                    transition={{ 
+                      duration: 3, 
+                      repeat: Infinity, 
+                      repeatType: "reverse" 
+                    }}
+                  >
+                    ENGINEERING
+                  </motion.span>
+                </motion.div>
+              </div>
+            </a>
           </div>
 
           {/* Desktop Navigation */}
